@@ -1,0 +1,6 @@
+# ************************* Powershell ***********************************
+# kicks terraform with destroy previously. Auto approve is set
+terraform destroy -auto-approve; terraform apply -auto-approve
+
+# execute with tfvars file 
+terraform destroy -auto-approve; terraform apply -auto-approve -var-file="prod.tfvars"

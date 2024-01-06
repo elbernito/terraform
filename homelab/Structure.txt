@@ -1,0 +1,25 @@
+esxi.dombb
+  |-main.tf
+  |-variables.tf
+  |-dombb.tfvars
+  |-modules
+     |-esxi
+	    |-esxi_createDummyMachine
+		   |-main.tf
+		   |-variables.tf
+	    |-esxi_copyRocky9Machine
+		   |-main.tf
+		   |-variables.tf		   
+	 |-utils
+	    |-lastMessage
+		   |-main.tf
+		   |-variables.tf  
+  |-server
+     |-TheDummyMachine
+	    |-main.tf
+		|-variables.tf
+     |-TheProxy
+	    |-main.tf
+		|-variables.tf
+
+  
