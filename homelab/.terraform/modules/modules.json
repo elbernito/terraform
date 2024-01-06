@@ -1,1 +1,0 @@
-{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"dombb","Source":"./configuration/dombb","Dir":"configuration/dombb"},{"Key":"dombb.server_theDummy","Source":"./server/TheDummy","Dir":"configuration/dombb/server/TheDummy"},{"Key":"dombb.server_theDummy.create_theDummyMachine","Source":"../../../../modules/esxi/create_dummyMachine","Dir":"modules/esxi/create_dummyMachine"}]}

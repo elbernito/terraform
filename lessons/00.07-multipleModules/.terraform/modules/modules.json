@@ -1,1 +1,0 @@
-{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"hello_terraform_module","Source":"./modules/helloTerraform","Dir":"modules/helloTerraform"},{"Key":"messageOut","Source":"./modules/messageOut","Dir":"modules/messageOut"},{"Key":"module_lastMessageOut","Source":"./modules/lastMessage","Dir":"modules/lastMessage"}]}
