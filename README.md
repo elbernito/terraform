@@ -1,0 +1,3 @@
+# Welcome to elbernito's terraform repository
+
+You may find lessons, a playground and a little big homelab configuration at this place...
