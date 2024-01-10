@@ -10,11 +10,10 @@ locals {
   esxi_hostName  = var.esxi_configuration["esxi_hostname"]
   esxi_hostPort  = var.esxi_configuration["esxi_hostport"]
   esxi_hostSsl   = var.esxi_configuration["esxi_hostssl"]
-  esxi_username  = var.esxi_configuration["esxi_username"]
-  esxi_password  = var.esxi_configuration["esxi_password"]
+  esxi_username  = var.esxi_username #"terraform"
+  esxi_password  = var.esxi_password #"mVmLHR96E6c797AG"
   esxi_diskstore = var.esxi_configuration["esxi_diskstore"]
   esxi_vmnet     = var.esxi_configuration["esxi_vmnet"]
-
   # -------------- esxi --------------------
   vm_thedummy_machineName = var.vm_theDummyMachine["machine_name"]
 }

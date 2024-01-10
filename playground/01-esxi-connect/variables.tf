@@ -17,10 +17,15 @@ variable "esxi_hostssl" {
 }
 
 variable "esxi_username" {
-  default = "terraform"
+  description = "The username for esxi host"
+  nullable = false
+  sensitive = true
+  type = string
 }
 
-variable "esxi_password" { # Unspecified will prompt
-  default = "mVmLHR96E6c797AG"
+variable "esxi_password" {
+  description = "The password for esxi host"
+  nullable = false
+  sensitive = true
+  type = string
 }
-

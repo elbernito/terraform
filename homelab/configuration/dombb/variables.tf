@@ -6,11 +6,24 @@ variable "esxi_configuration" {
     esxi_hostname  = "192.168.1.60"
     esxi_hostport  = "22"
     esxi_hostssl   = "443"
-    esxi_username  = "terraform"
-    esxi_password  = "mVmLHR96E6c797AG"
     esxi_vmnet     = "VM Network"
   }
 }
+
+variable "esxi_username" {
+  description = "The username for esxi host"
+  nullable = false
+  sensitive = true
+  type = string
+}
+
+variable "esxi_password" {
+  description = "The password for esxi host"
+  nullable = false
+  sensitive = true
+  type = string
+}
+
 
 variable "vm_theDummyMachine" {
   description = "This are the parameter for TheDummy machine"

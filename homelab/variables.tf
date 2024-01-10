@@ -1,1 +1,0 @@
-# Parameter file for complete esxi cluster
