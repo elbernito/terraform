@@ -67,7 +67,7 @@ resource "ansible_playbook" "write_testee" {
     ansible_connection = "ssh"
     ansible_user       = var.machine_ssh_user_root_name
     #ansible_ssh_private_key_file   = "id_rsa"
-    ansible_ssh_password = "build@Good123"
+    ansible_ssh_password = "xxxxx"
   }
 
 }
