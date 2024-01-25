@@ -1,0 +1,8 @@
+- name: Check ip for the new vm machine
+  hosts: all
+
+  tasks:
+
+    - name: Test reachability to new vm machine using default vrf
+      ansible.netcommon.net_ping:
+        dest: "{{ machine_new_ip }}"
