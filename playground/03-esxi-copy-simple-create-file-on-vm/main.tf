@@ -47,27 +47,32 @@ resource "esxi_guest" "vmtest03" {
 
 }
 
-resource "ansible_playbook" "write_testee" {
-  name                    = "192.168.1.148" #!!! Plugin set this as host name !!!
+resource "ansible_playbook" "configure_ip" {
+  depends_on = [esxi_guest.vmtest03]
+  # =========================================================
+  # name has set to ip or host name! Plugin will use this
+  # in the ssh command as host... :/
+  # =========================================================
+  name = esxi_guest.vmtest03.ip_address
+
   ansible_playbook_binary = "ansible-playbook"
-  verbosity = "6"
+  verbosity               = "6"
   playbook                = "ansible/playbook.yaml"
   ignore_playbook_failure = true
-  replayable = true
-  
-  tags = [
-    "tag1"
-  ]
+  replayable              = true
 
   # connection configuration and other vars
   extra_vars = {
-    #host_key_checking = false
-    #ansible_config = "ansible.cfg"
-    ansible_hostname : "192.168.1.148"
+
+    check_mode     = false # validate this playbook
+    diff           = false # only for debug. May contains sensitive data
+    force_handlers = false # only used in when multiple hosts at once configured
+
+    ansible_hostname   = "${esxi_guest.vmtest03.ip_address}"
     ansible_connection = "ssh"
     ansible_user       = var.machine_ssh_user_root_name
     #ansible_ssh_private_key_file   = "id_rsa"
-    ansible_ssh_password = "xxxxx"
+    ansible_ssh_password = var.machine_ssh_user_root_password
   }
 
 }

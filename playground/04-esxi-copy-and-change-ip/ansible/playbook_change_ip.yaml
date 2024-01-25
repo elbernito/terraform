@@ -1,0 +1,48 @@
+- name: Change hostname and ip for the new vm machine
+  hosts: all
+
+  vars:
+    state_file: /tmp/terraform-ansible-init-{{ ansible_date_time.iso8601 }}.txt
+
+  tasks:
+
+    - name: Needed packages
+      ansible.builtin.package:
+        name:
+          - NetworkManager-libnm
+          - nm-connection-editor
+          - python3-libsemanage
+          - python3-policycoreutils
+        state: present
+
+    - name: Create state file
+      ansible.builtin.file:
+        mode: "0775"
+        path: "{{ state_file }}"
+        state: touch
+
+    - name: Write to state file
+      ansible.builtin.copy:
+        mode: "0775"
+        content: |
+          Created by TheFormer on init configuration at: {{ ansible_date_time.iso8601 }}
+        dest: "{{ state_file }}"
+
+    - name: Change hostname
+      ansible.builtin.hostname:
+        name: "{{ machine_new_hostname }}"
+
+    - name: Change machine ip address, gateway and dns
+      community.general.nmcli:
+        type: ethernet
+        conn_name: ens35
+        ifname: ens35
+        ip4: "{{ machine_new_ip }}/24"
+        gw4: "{{ machine_new_dns }}"
+        dns4:
+          - "{{ machine_new_gateway }}"
+          - 8.8.8.8
+        state: present
+        autoconnect: true
+      async: 1
+      poll: 0
